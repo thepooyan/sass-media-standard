@@ -1,0 +1,21 @@
+$orientation: screen;
+$mobile: 480px; //480px - 320px
+$tablet: 698px; //993 - 698px
+$laptop: 992px; //1201px - 992px
+$screen: 1200px; //1920px - 1200px
+
+@function orientation() {
+    @if ($orientation == 'screen') {
+        @return 'max-width';
+    }
+
+    @if ($orientation == 'mobile') {
+        @return 'min-width'
+    }
+}
+
+@mixin media($arg) {
+    @media (orientation(): $arg) {
+        @content
+    }
+}
